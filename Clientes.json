@@ -1,0 +1,15 @@
+[{
+  "_id": {
+    "$oid": "6494c4bad0fdfc3547c9a450"
+  },
+  "CPF": "23890192323",
+  "Nomedocliente": "Rodrigo de Sousa",
+  "Numerodecelular": "139482312"
+},{
+  "_id": {
+    "$oid": "6494c543f6aabc9cef3e0950"
+  },
+  "CPF": "11122233302",
+  "Nomedocliente": "Maria de Souza",
+  "Numerodecelular": "283749213"
+}]

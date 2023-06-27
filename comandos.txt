@@ -1,0 +1,162 @@
+use Pizzaria
+db.PrecoDoTamanho.insertOne({
+  Pequena:  5,
+  Media: 10,
+  Grande: 15
+})
+db.PrecoDosSabores.insertOne({
+  Pepperoni:20,
+  Calabresa:35,
+  "4Queijos":50,
+  Chocolate:25 
+
+})
+db.PrecoDosSabores.deleteOne({ "4Queijos": 50 })
+
+db.PrecoDosSabores.insertOne({
+  Pepperoni:20,
+  Calabresa:35,
+  QuatroQueijos:50,
+  Chocolate:25 
+
+})
+
+db.Precos.insertOne({
+  Pepperoni:20,
+  Calabresa:35,
+  QuatroQueijos:50,
+  Chocolate:25,
+Pequena:  5,
+  Media: 10,
+  Grande: 15
+
+})
+
+db.Clientes.updateOne( { "CPF":"11122233302", }, { $set: { "Numerodecelular":"283749213", } } ) 
+
+db.Pedidos.insertOne({
+  "Nome do cliente":"Rodrigo de Sousa",
+  "Endereço":"Rua Espirito Santo",
+  "Pedido": "1 1/2 calabresa 1/2 chocolate ,Grande"
+
+})
+
+db.Pedidos.insertOne({
+  "Nome do cliente":"Maria de Souza",
+  "Endereço":"Rua Vossa senhora",
+  "Pedido": " 2 QuatroQueijos ,  Pequenas, 1 suco de caixa",
+
+})
+
+db.Clientes.insertOne({
+  "CPF":"11122233302",
+"Nomedocliente":"Maria de Souza",
+  "Numerodecelular":"139482312",
+
+})
+
+
+
+db.Bebidas.insertOne({
+  SucoDeCaixa: 20,
+  Refri: 15,
+  Cerveja:23,
+})
+
+db.Clientes.insertOne({
+  "CPF":"23890192323",
+"Nomedocliente":"Rodrigo de Sousa",
+  "Numerodecelular":"139482312",
+
+})
+
+db.Bebidas.find().pretty()
+
+db.Pedidos.aggregate([
+  {
+    $lookup: {
+      from: "Clientes",
+      localField: "Nome do cliente",
+      foreignField: "Nomedocliente",
+      as: "NomeVeridico",
+    },
+  },
+  {
+    $limit: 2
+  }
+])
+
+db.Clientes.aggregate(
+    [ { $group : { _id : "$Numerodecelular" } } ]
+)     
+
+db.Clientes.find({Nomedocliente:{$ne:"Sousa"}}).pretty()	
+
+db.Clientes.updateOne( { "CPF":"11122233302", }, { $set: { "Numerodecelular":"283749213", } } )
+
+db.Pedidos.aggregate(
+   [
+     { $project: { "Nome do cliente": 1, total: { $add: [ "$", "$fee" ] } } }
+   ]
+)
+
+db.Pedidos.aggregate([ 
+  { $match : { property_type : "House" } },
+  { $limit: 2 },
+  { $project: {
+    "name": 1,
+    "bedrooms": 1,
+    "price": 1
+  }}
+])
+
+db.Pedidos.find({"Nome do cliente":"Rodrigo de Sousa"}).pretty()	
+
+db.Precos.aggregate(
+   [
+     { $project: {  precototal: { $add: [ "$Calabresa", "$Chocolate","$Grande" ] } } }
+   ]
+)
+
+db.Bebidas.drop()
+db.PrecoDosSabores.drop()
+db.PrecoDoTamanho.drop()
+
+db.Precos.insertOne({
+  Pepperoni:20,
+  Calabresa:35,
+  QuatroQueijos:50,
+  Chocolate:25,
+Pequena:5,
+  Media: 10,
+  Grande: 15,
+SucoDeCaixa: 20,
+  Refri: 15,
+  Cerveja:23
+
+
+})
+
+db.Precos.aggregate(
+   [
+     { $project: {  precototal: { $add: [ "$Calabresa", "$Chocolate","$Grande","$Refri" ] } } }
+
+   ]
+)
+
+db.Precos.insertOne({
+  
+
+SucoDeCaixa: 20,
+  Refri: 15,
+  Cerveja:23,
+
+
+})
+
+
+db.Precos.deleteMany({ Refri:15})
+
+db.Bebidas.drop()
+db.PrecoDosSabores.drop()
+db.PrecoDoTamanho.drop()

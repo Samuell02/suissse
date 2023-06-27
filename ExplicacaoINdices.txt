@@ -1,0 +1,3 @@
+ o indice  endereço na Pedidos é eficiente porque muitas pessoas podem morar numa mesma rua.
+
+o indice nome_do_cliente na Clientes é eficiente porque muitas pessoas tem nomes similares.

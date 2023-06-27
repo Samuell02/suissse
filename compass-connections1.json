@@ -1,0 +1,33 @@
+{
+  "type": "Compass Connections",
+  "version": {
+    "$numberInt": "1"
+  },
+  "connections": [
+    {
+      "id": "8b10ca81-c1db-4319-a117-049ce2f442da",
+      "connectionOptions": {
+        "connectionString": "mongodb://localhost:27017\n/"
+      },
+      "favorite": {
+        "name": "mycon",
+        "color": "color5"
+      }
+    },
+    {
+      "id": "f23cf717-d8ed-4aa9-9ae0-7a658ddd251b",
+      "connectionOptions": {
+        "connectionString": "mongodb://localhost:27017/"
+      },
+      "favorite": {
+        "name": "hocallost",
+        "color": "color4"
+      },
+      "lastUsed": {
+        "$date": {
+          "$numberLong": "1686090921616"
+        }
+      }
+    }
+  ]
+}

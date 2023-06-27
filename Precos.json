@@ -1,0 +1,15 @@
+[{
+  "_id": {
+    "$oid": "6494d5edb6b57b1e5382182e"
+  },
+  "Pepperoni": 20,
+  "Calabresa": 35,
+  "QuatroQueijos": 50,
+  "Chocolate": 25,
+  "Pequena": 5,
+  "Media": 10,
+  "Grande": 15,
+  "SucoDeCaixa": 20,
+  "Refri": 15,
+  "Cerveja": 23
+}]
